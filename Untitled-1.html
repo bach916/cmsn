@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chúc mừng sinh nhật em Khánh!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+    }
+
+    /* --- Welcome Page --- */
+    #welcome {
+      position: absolute;
+      width: 90%;
+      max-width: 800px;
+      height: 90%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      transition: opacity 1s ease;
+      
+      /* --- Khung viền hoa lá --- */
+      border: 10px solid transparent;
+      border-image: url('') 30 stretch;/* thêm địa chỉ web nền */
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.05);
+    }
+
+    #welcome h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff00de;
+    }
+    .msg {
+      display: none;
+      font-size: 1.6em;
+      margin: 15px 0;
+      color: #fff;
+      opacity: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid rgba(255,255,255,0.7);
+    }
+
+    .msg.show {
+      display: block;
+      animation: typing 2s steps(30, end), blink 0.7s step-end infinite, fadeIn 2s ease forwards, bounce 0.8s ease-out;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: rgba(255,255,255,0.7); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(-20px); }
+      50% { transform: translateY(5px); }
+      100% { transform: translateY(0); }
+    }
+
+    #welcome button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      background: #ff4b2b;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+    #welcome button:hover {
+      background: #ff6f61;
+      transform: scale(1.05);
+    }
+
+    /* --- Birthday Page --- */
+    #birthday {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      text-align: center;
+      color: #fff;
+    }
+    #birthday.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    #birthday h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff00de;
+    }
+
+    /* 🎥 Video/GIF Cake */
+    .cake-video {
+      width: 240px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.6);
+      margin: 20px auto;
+      display: block;
+      border: 3px solid #fff;
+    }
+
+    /* Fireworks */
+    #fireworks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Balloons */
+    #balloons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -120px;
+      width: 50px;
+      height: 70px;
+      border-radius: 50%;
+      opacity: 0.9;
+      animation: rise linear forwards;
+    }
+    .balloon::before {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      background: inherit;
+      border-radius: 3px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: #444;
+      transform: translateX(-50%);
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.1); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Welcome Page -->
+<div id="welcome">
+  <h1>🎉 Hi Khánh ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა 🎉</h1>
+  <p class="msg">Hôm nay là một ngày đặc biệt của em ⸜(｡˃ ᵕ ˂ )⸝♡</p>
+  <p class="msg">Anh có món quà dành tặng riêng cho em ( ˶ˆᗜˆ˵ )</p>
+  <p class="msg">Ấn tiếp tục đi nào ( ≧ᗜ≦)</p>
+  <button onclick="nextMessage()">Tiếp tục</button>
+</div>
+
+  <!-- Birthday Page -->
+  <div id="birthday">
+    <h1>Chúc mừng sinh nhật em nhé hihi (≧ヮ≦) 💕</h1>
+    <!-- Video hoặc GIF -->
+    <video class="cake-video" autoplay loop muted playsinline>
+      <source src="loopy.mp4" type="video/mp4">
+      <source src="cake.gif" type="image/gif">
+      Trình duyệt không hỗ trợ video.
+    </video>
+
+    <!-- Nhạc nền -->
+    <audio id="bg-music" loop>
+      <source src="h1.mp3" type="audio/mpeg">
+    </audio>
+
+    <canvas id="fireworks"></canvas>
+    <div id="balloons"></div>
+  </div>
+
+  <script>
+    let currentMsg = 0;
+    const messages = document.querySelectorAll(".msg");
+
+    function nextMessage() {
+      if (currentMsg < messages.length) {
+        messages[currentMsg].classList.add("show");
+        currentMsg++;
+      } else {
+        document.getElementById("welcome").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("welcome").style.display = "none";
+          document.getElementById("birthday").classList.add("active");
+          startFireworks();
+          startBalloons();
+          playMusic();
+        }, 1000);
+      }
+    }
+
+    function playMusic() {
+      const music = document.getElementById("bg-music");
+      if (music) {
+        music.play().catch(err => {
+          console.log("Trình duyệt chặn autoplay, cần click để phát:", err);
+        });
+      }
+    }
+
+    function startFireworks() {
+      const canvas = document.getElementById('fireworks');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particles = [];
+      function random(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function createFirework() {
+        let x = random(100, canvas.width - 100);
+        let y = random(50, canvas.height / 2);
+        let count = 100;
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x, y,
+            angle: random(0, Math.PI * 2),
+            speed: random(2, 7),
+            radius: random(2, 4),
+            alpha: 1,
+          });
+        }
+      }
+
+      function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p, i) => {
+          p.x += Math.cos(p.angle) * p.speed;
+          p.y += Math.sin(p.angle) * p.speed + 0.5;
+          p.alpha -= 0.01;
+          ctx.fillStyle = `rgba(${Math.floor(random(0,255))},${Math.floor(random(0,255))},${Math.floor(random(0,255))},${p.alpha})`;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+          if (p.alpha <= 0) particles.splice(i, 1);
+        });
+      }
+
+      setInterval(() => {
+        if (particles.length < 50) createFirework();
+      }, 1000);
+
+      function loop() {
+        update();
+        requestAnimationFrame(loop);
+      }
+      loop();
+    }
+
+    function startBalloons() {
+      const colors = ["red", "blue", "green", "yellow", "purple", "pink", "orange", "cyan"];
+      const balloonsContainer = document.getElementById("balloons");
+
+      setInterval(() => {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.left = Math.random() * 100 + "vw";
+        const size = 40 + Math.random() * 40;
+        balloon.style.width = size * 0.7 + "px";
+        balloon.style.height = size + "px";
+        balloon.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+        balloonsContainer.appendChild(balloon);
+
+        setTimeout(() => {
+          balloon.remove();
+        }, 8000);
+      }, 300);
+    }
+  </script>
+</body>
+</html>

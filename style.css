@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+    background-size: 1000% 1000%;
+    animation: bgMove 20s ease infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  
+  @keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  
+  h1 {
+    font-size: 5em;
+    text-align: center;
+    color: #fff;
+    text-shadow: 
+      0 0 10px #ff00de,
+      0 0 20px #ff00de,
+      0 0 30px #ff00de,
+      0 0 40px #ff1177,
+      0 0 70px #ff1177,
+      0 0 80px #ff1177;
+    animation: neon 1.5s infinite alternate;
+  }
+  
+  @keyframes neon {
+    from {
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff00de,
+        0 0 20px #ff00de,
+        0 0 30px #ff1177;
+    }
+    to {
+      text-shadow:
+        0 0 20px #fff,
+        0 0 30px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff1177;
+    }
+  }
+  
+  /* 🎥 Video Birthday Cake */
+  .cake {
+    margin-top: 40px;
+  }
+  
+  .cake video {
+    width: 300px;      /* chỉnh kích thước video */
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+  
